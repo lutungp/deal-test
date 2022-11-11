@@ -38,33 +38,33 @@ export default function (app: Express) {
   );
 
   // Get the user's sessions
-  app.get("/api/sessions", requiresUser, getUserSessionsHandler);
+  app.get("/api/sessions", requiresUser(['admin', 'user']), getUserSessionsHandler);
 
   // Logout
-  app.delete("/api/logout", requiresUser, invalidateUserSessionHandler);
+  app.delete("/api/logout", requiresUser(['admin', 'user']), invalidateUserSessionHandler);
 
   // Create a product
   app.post(
     "/api/product",
-    [requiresUser, validateRequest(createProductSchema)],
+    [requiresUser(['admin']), validateRequest(createProductSchema)],
     createProductHandler
   );
 
   // Update a product
   app.put(
     "/api/product/:productId",
-    [requiresUser, validateRequest(updateProductSchema)],
+    [requiresUser(['admin']), validateRequest(updateProductSchema)],
     updateProductHandler
   );
 
   // Get a product
-  app.get("/api/product/:productId", requiresUser, getProductHandler);
-  app.get("/api/products", requiresUser, getAllProductHandler);
+  app.get("/api/product/:productId", requiresUser(['admin', 'user']), getProductHandler);
+  app.get("/api/products", requiresUser(['admin', 'user']), getAllProductHandler);
 
   // Delete a product
   app.delete(
     "/api/product/:productId",
-    [requiresUser, validateRequest(deleteProductSchema)],
+    [requiresUser(['admin']), validateRequest(deleteProductSchema)],
     deleteProductHandler
   );
 }

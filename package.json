@@ -4,7 +4,10 @@
   "description": "Deals backend-test",
   "main": "index.js",
   "scripts": {
-    "dev": "nodemon --config nodemon.json src/app.ts"
+    "start": "nodemon --config nodemon.json src/app.ts",
+    "start:dev": "nodemon --config nodemon.json src/app.ts",
+    "start:prod": "nodemon --config nodemon.json dist/app.js",
+    "build": "npx tsc"
   },
   "repository": "git+https://github.com/lutungp/deal-test.git",
   "keywords": [],

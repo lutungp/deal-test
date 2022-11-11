@@ -1,14 +1,6 @@
 import mongoose from "mongoose";
 import { v4 as uuidv4 } from 'uuid';
-import { UserDocument } from "./user.model";
-
-export interface ProductDocument extends mongoose.Document {
-  user: UserDocument["_id"];
-  title: string;
-  description: string;
-  createdAt: Date;
-  updatedAt: Date;
-}
+import { ProductDocument } from "../interfaces/product.interface";
 
 const ProductSchema = new mongoose.Schema(
   {

@@ -4,7 +4,8 @@ import {
     UpdateQuery,
     QueryOptions,
   } from "mongoose";
-  import Product, { ProductDocument } from "../model/product.model";
+import { ProductDocument } from "../interfaces/product.interface";
+  import Product from "../model/product.model";
   
   export function createProduct(input: DocumentDefinition<ProductDocument>) {
     return Product.create(input);

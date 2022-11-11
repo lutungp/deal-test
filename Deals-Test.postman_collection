@@ -1,0 +1,1035 @@
+{
+	"info": {
+		"_postman_id": "7938b1a3-ffdc-4d98-90d7-969d2dbc81fb",
+		"name": "DEALS",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "21751858"
+	},
+	"item": [
+		{
+			"name": "Auth",
+			"item": [
+				{
+					"name": "Login",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var jsonData = JSON.parse(responseBody);\r",
+									"pm.environment.set(\"token\",  jsonData.accessToken);\r",
+									"pm.environment.set(\"refresh_token\",  jsonData.refreshToken);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"lntngp19@gmail.com\",\r\n    \"password\": \"1234567\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/api/login",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"login"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Login",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"email\": \"lntngp19@gmail.com\",\r\n    \"password\": \"1234567\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8000/api/login",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"login"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "830"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"33e-UPvLAaIFFZeu1oHk2dhG6t9H3/o\""
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 11 Nov 2022 01:29:51 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"accessToken\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MzZkYTJlN2NlYzQ0YzkxZGU1ZTE1NjgiLCJlbWFpbCI6ImxudG5ncDE5QGdtYWlsLmNvbSIsIm5hbWUiOiJsaW50YW5nIiwiY3JlYXRlZEF0IjoiMjAyMi0xMS0xMVQwMToxODozMS4yMjBaIiwidXBkYXRlZEF0IjoiMjAyMi0xMS0xMVQwMToxODozMS4yMjBaIiwiX192IjowLCJzZXNzaW9uIjoiNjM2ZGE1OGZjZWM0NGM5MWRlNWUxNTZjIiwiaWF0IjoxNjY4MTMwMTkxLCJleHAiOjE2NjgxMzEwOTF9.fFUjoaIpQ9VPCsdhQYvfD7_bJ8nV0Mpu1Z-m0lm4H-E\",\n    \"refreshToken\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjoiNjM2ZGEyZTdjZWM0NGM5MWRlNWUxNTY4IiwidmFsaWQiOnRydWUsInVzZXJBZ2VudCI6IlBvc3RtYW5SdW50aW1lLzcuMjkuMiIsIl9pZCI6IjYzNmRhNThmY2VjNDRjOTFkZTVlMTU2YyIsImNyZWF0ZWRBdCI6IjIwMjItMTEtMTFUMDE6Mjk6NTEuNzIwWiIsInVwZGF0ZWRBdCI6IjIwMjItMTEtMTFUMDE6Mjk6NTEuNzIwWiIsIl9fdiI6MCwiaWF0IjoxNjY4MTMwMTkxLCJleHAiOjE2OTk2ODc3OTF9.Yh7LBnb1ToaYM-zOgCs0OVT-a8eO-daw45VY2cPiuzM\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Logout",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/api/logout",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"logout"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Logout",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8000/api/logout",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"logout"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "plain",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "text/plain; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "2"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"2-nOO9QiTIwXgNtWtBJezz8kv3SLc\""
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 11 Nov 2022 01:35:30 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "OK"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "User",
+			"item": [
+				{
+					"name": "Get Current User",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "x-refresh",
+								"value": "{{refresh_token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{base_url}}/api/sessions",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"sessions"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Get Current User",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8000/api/sessions",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"sessions"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "817"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"331-Iqa1z1J8Ij/aUwHB3fdcduXspyM\""
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 11 Nov 2022 01:33:44 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "[\n    {\n        \"_id\": \"636da58fcec44c91de5e156c\",\n        \"user\": \"636da2e7cec44c91de5e1568\",\n        \"valid\": true,\n        \"userAgent\": \"PostmanRuntime/7.29.2\",\n        \"createdAt\": \"2022-11-11T01:29:51.720Z\",\n        \"updatedAt\": \"2022-11-11T01:29:51.720Z\",\n        \"__v\": 0\n    },\n    {\n        \"_id\": \"636da63736db26d07506a2c9\",\n        \"user\": \"636da2e7cec44c91de5e1568\",\n        \"valid\": true,\n        \"userAgent\": \"PostmanRuntime/7.29.2\",\n        \"createdAt\": \"2022-11-11T01:32:39.139Z\",\n        \"updatedAt\": \"2022-11-11T01:32:39.139Z\",\n        \"__v\": 0\n    },\n    {\n        \"_id\": \"636da65c36db26d07506a2cc\",\n        \"user\": \"636da2e7cec44c91de5e1568\",\n        \"valid\": true,\n        \"userAgent\": \"PostmanRuntime/7.29.2\",\n        \"createdAt\": \"2022-11-11T01:33:16.597Z\",\n        \"updatedAt\": \"2022-11-11T01:33:16.597Z\",\n        \"__v\": 0\n    },\n    {\n        \"_id\": \"636da66f36db26d07506a2cf\",\n        \"user\": \"636da2e7cec44c91de5e1568\",\n        \"valid\": true,\n        \"userAgent\": \"PostmanRuntime/7.29.2\",\n        \"createdAt\": \"2022-11-11T01:33:35.148Z\",\n        \"updatedAt\": \"2022-11-11T01:33:35.148Z\",\n        \"__v\": 0\n    }\n]"
+						}
+					]
+				},
+				{
+					"name": "Create User",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "x-refresh",
+								"value": "{{refresh_token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"hestydk@gmail.com\",\r\n    \"name\": \"lintang\",\r\n    \"password\": \"1234567\",\r\n    \"role\": \"admin c\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/api/users",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"users"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Create User",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "x-refresh",
+										"value": "{{refresh_token}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"email\": \"lntngpppp@gmail.com\",\r\n    \"name\": \"lintang\",\r\n    \"password\": \"1234567\",\r\n    \"role\": \"user\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/api/users",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"api",
+										"users"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "181"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"b5-rPUx0dWuuTP/ViGQhXHGFSXcl3Q\""
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 11 Nov 2022 08:34:46 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"email\": \"lntngpppp@gmail.com\",\n    \"name\": \"lintang\",\n    \"role\": \"user\",\n    \"_id\": \"636e0926c1d9d2b21f1d49c8\",\n    \"createdAt\": \"2022-11-11T08:34:46.024Z\",\n    \"updatedAt\": \"2022-11-11T08:34:46.024Z\",\n    \"__v\": 0\n}"
+						},
+						{
+							"name": "Create User Admin",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "x-refresh",
+										"value": "{{refresh_token}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"email\": \"hestydk@gmail.com\",\r\n    \"name\": \"lintang\",\r\n    \"password\": \"1234567\",\r\n    \"role\": \"admin\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/api/users",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"api",
+										"users"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "180"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"b4-FyOaNff8FZnt3sS2JFVfrLLQoMg\""
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 11 Nov 2022 08:35:18 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"email\": \"hestydk@gmail.com\",\n    \"name\": \"lintang\",\n    \"role\": \"admin\",\n    \"_id\": \"636e0946c1d9d2b21f1d49cc\",\n    \"createdAt\": \"2022-11-11T08:35:18.573Z\",\n    \"updatedAt\": \"2022-11-11T08:35:18.573Z\",\n    \"__v\": 0\n}"
+						}
+					]
+				}
+			],
+			"auth": {
+				"type": "bearer",
+				"bearer": [
+					{
+						"key": "token",
+						"value": "{{token}}",
+						"type": "string"
+					}
+				]
+			},
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "Product",
+			"item": [
+				{
+					"name": "Get Product",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "x-refresh",
+								"value": "{{refresh_token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{base_url}}/api/products",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"products"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Get Product",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "x-refresh",
+										"value": "{{refresh_token}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{base_url}}/api/products",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"api",
+										"products"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "811"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"32b-Iv+GjGXdPALtQlMA9PrNQqTB5Ok\""
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 11 Nov 2022 08:49:15 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "[\n    {\n        \"_id\": \"636dfef8f8d17fda5c83b32c\",\n        \"user\": \"636da2e7cec44c91de5e1568\",\n        \"title\": \"Handphone 2\",\n        \"description\": \"Barang bagus beli banyak\",\n        \"productId\": \"36623106-0ee6-4c9a-8833-a4987ff66cf2\",\n        \"createdAt\": \"2022-11-11T07:51:20.914Z\",\n        \"updatedAt\": \"2022-11-11T07:52:04.956Z\",\n        \"__v\": 0\n    },\n    {\n        \"_id\": \"636dfefbf8d17fda5c83b32e\",\n        \"user\": \"636da2e7cec44c91de5e1568\",\n        \"title\": \"Handphone 3\",\n        \"description\": \"Barang bagus beli banyak ff\",\n        \"productId\": \"62f06a3f-32e1-4b8a-8d50-8aa0faccfc41\",\n        \"createdAt\": \"2022-11-11T07:51:23.685Z\",\n        \"updatedAt\": \"2022-11-11T07:51:23.685Z\",\n        \"__v\": 0\n    },\n    {\n        \"_id\": \"636dff05f8d17fda5c83b330\",\n        \"user\": \"636da2e7cec44c91de5e1568\",\n        \"title\": \"Handphone 4\",\n        \"description\": \"Barang bagus beli banyak\",\n        \"productId\": \"c5ec4e5f-15c8-4296-82bc-512124b7eab0\",\n        \"createdAt\": \"2022-11-11T07:51:33.007Z\",\n        \"updatedAt\": \"2022-11-11T07:51:48.781Z\",\n        \"__v\": 0\n    }\n]"
+						}
+					]
+				},
+				{
+					"name": "Get Product by id",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "x-refresh",
+								"value": "{{refresh_token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{base_url}}/api/product/:product_id",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"product",
+								":product_id"
+							],
+							"variable": [
+								{
+									"key": "product_id",
+									"value": "f66c58b0-a703-4a5e-8bc2-fcc35e2de394"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Get Product by id",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "x-refresh",
+										"value": "{{refresh_token}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{base_url}}/api/product/:product_id",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"api",
+										"product",
+										":product_id"
+									],
+									"variable": [
+										{
+											"key": "product_id",
+											"value": "f66c58b0-a703-4a5e-8bc2-fcc35e2de394"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "263"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"107-YRtShobX8F/GBAodONCxLNX9cyI\""
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 11 Nov 2022 08:53:47 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"_id\": \"636e0d7e94c91c0eb5e6359b\",\n    \"user\": \"636e0909c1d9d2b21f1d49c5\",\n    \"title\": \"Sepatu\",\n    \"description\": \"Barang bagus beli banyak\",\n    \"productId\": \"f66c58b0-a703-4a5e-8bc2-fcc35e2de394\",\n    \"createdAt\": \"2022-11-11T08:53:18.098Z\",\n    \"updatedAt\": \"2022-11-11T08:53:31.709Z\",\n    \"__v\": 0\n}"
+						}
+					]
+				},
+				{
+					"name": "Create Product",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "x-refresh",
+								"value": "{{refresh_token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"title\": \"Handphone 3\",\r\n    \"description\": \"Barang bagus beli banyak ff\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/api/product",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"product"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Create Product",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "x-refresh",
+										"value": "{{refresh_token}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"title\": \"Handphone 3\",\r\n    \"description\": \"Barang bagus beli banyak ff\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/api/product",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"api",
+										"product"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "271"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"10f-mYJGaLJ9lBpBKrO4E6C/JuGaiiw\""
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 11 Nov 2022 08:53:18 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"user\": \"636e0909c1d9d2b21f1d49c5\",\n    \"title\": \"Handphone 3\",\n    \"description\": \"Barang bagus beli banyak ff\",\n    \"_id\": \"636e0d7e94c91c0eb5e6359b\",\n    \"productId\": \"f66c58b0-a703-4a5e-8bc2-fcc35e2de394\",\n    \"createdAt\": \"2022-11-11T08:53:18.098Z\",\n    \"updatedAt\": \"2022-11-11T08:53:18.098Z\",\n    \"__v\": 0\n}"
+						}
+					]
+				},
+				{
+					"name": "Update Product",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "x-refresh",
+								"value": "{{refresh_token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"title\": \"Sepatu\",\r\n    \"description\": \"Barang bagus beli banyak\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/api/product/:product_id",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"product",
+								":product_id"
+							],
+							"variable": [
+								{
+									"key": "product_id",
+									"value": "f66c58b0-a703-4a5e-8bc2-fcc35e2de394"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Update Product",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "x-refresh",
+										"value": "{{refresh_token}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"title\": \"Sepatu\",\r\n    \"description\": \"Barang bagus beli banyak\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/api/product/:product_id",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"api",
+										"product",
+										":product_id"
+									],
+									"variable": [
+										{
+											"key": "product_id",
+											"value": "f66c58b0-a703-4a5e-8bc2-fcc35e2de394"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "263"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"107-YRtShobX8F/GBAodONCxLNX9cyI\""
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 11 Nov 2022 08:53:31 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"_id\": \"636e0d7e94c91c0eb5e6359b\",\n    \"user\": \"636e0909c1d9d2b21f1d49c5\",\n    \"title\": \"Sepatu\",\n    \"description\": \"Barang bagus beli banyak\",\n    \"productId\": \"f66c58b0-a703-4a5e-8bc2-fcc35e2de394\",\n    \"createdAt\": \"2022-11-11T08:53:18.098Z\",\n    \"updatedAt\": \"2022-11-11T08:53:31.709Z\",\n    \"__v\": 0\n}"
+						}
+					]
+				},
+				{
+					"name": "Delete product",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "x-refresh",
+								"value": "{{refresh_token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{base_url}}/api/product/:product_id",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"product",
+								":product_id"
+							],
+							"variable": [
+								{
+									"key": "product_id",
+									"value": "c7c3c4a4-8fbb-47e6-925f-db1f4df2b22e"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Delete product",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "x-refresh",
+										"value": "{{refresh_token}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{base_url}}/api/product/:product_id",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"api",
+										"product",
+										":product_id"
+									],
+									"variable": [
+										{
+											"key": "product_id",
+											"value": "c7c3c4a4-8fbb-47e6-925f-db1f4df2b22e"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "plain",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "text/plain; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "2"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"2-nOO9QiTIwXgNtWtBJezz8kv3SLc\""
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 11 Nov 2022 08:52:38 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "OK"
+						}
+					]
+				}
+			],
+			"auth": {
+				"type": "bearer",
+				"bearer": [
+					{
+						"key": "token",
+						"value": "{{token}}",
+						"type": "string"
+					}
+				]
+			},
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		}
+	]
+}

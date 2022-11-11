@@ -14,6 +14,9 @@ export const createUserSchema = object({
     email: string()
       .email("Must be a valid email")
       .required("Email is required"),
+    role: string()
+      .oneOf(['admin', 'user'], "Must be a valid role")
+      .required("Role is required"),
   }),
 });
 
