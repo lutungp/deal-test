@@ -17,4 +17,4 @@ docker compose up prod // development mode
 ```
 
 Result of docker build .
-![alt text](https://github.com/[username]/[reponame]/blob/[branch]/image-build.png?raw=true)
+![alt text](https://github.com/lutungp/deal-test/blob/master/image-build.png?raw=true)
