@@ -18,3 +18,6 @@ docker compose up prod // development mode
 
 Result of docker build .
 ![alt text](https://github.com/lutungp/deal-test/blob/master/image-build.png?raw=true)
+
+Result of docker compose up dev
+![alt text](https://github.com/lutungp/deal-test/blob/master/compose-up-dev.png?raw=true)
