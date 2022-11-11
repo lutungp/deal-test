@@ -10,8 +10,9 @@ import {
     return Product.create(input);
   }
   
-  export function getProducts() {
-    return Product.find({});
+  export async function getProducts() {
+    const all = await Product.find();
+    return all;
   }
 
   export function findProduct(

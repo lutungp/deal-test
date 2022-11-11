@@ -4,7 +4,7 @@ import {
   updateProductHandler,
   getProductHandler,
   deleteProductHandler,
-  getProductsHandler,
+  getAllProductHandler,
 } from "./controller/product.controller";
 import { createUserHandler } from "./controller/user.controller";
 import {
@@ -58,8 +58,8 @@ export default function (app: Express) {
   );
 
   // Get a product
-  app.get("/api/product/:productId", getProductHandler);
-  app.get("/api/products", getProductsHandler);
+  app.get("/api/product/:productId", requiresUser, getProductHandler);
+  app.get("/api/products", requiresUser, getAllProductHandler);
 
   // Delete a product
   app.delete(

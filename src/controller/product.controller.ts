@@ -11,7 +11,7 @@ import {
 export async function createProductHandler(req: Request, res: Response) {
   const userId = get(req, "user._id");
   const body = req.body;
-
+  
   const product = await createProduct({ ...body, user: userId });
 
   return res.send(product);
@@ -48,9 +48,9 @@ export async function getProductHandler(req: Request, res: Response) {
   return res.send(product);
 }
 
-export async function getProductsHandler(res: Response) {
+export async function getAllProductHandler(req: Request, res: Response) {
   const product = await getProducts();
-  console.log(product)
+
   if (!product) {
     return res.sendStatus(404);
   }
