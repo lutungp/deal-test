@@ -9,7 +9,7 @@ export interface UserDocument extends UserInput, mongoose.Document {
   comparePassword(candidatePassword: string): Promise<Boolean>;
 }
 
-const userSchema = new mongoose.Schema(
+export const userSchema = new mongoose.Schema(
   {
     email: { type: String, required: true, unique: true },
     name: { type: String, required: true },
