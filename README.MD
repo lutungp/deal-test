@@ -1,3 +1,7 @@
+### Run Seeder
+```
+yarn run seeder
+```
 
 ### Run Service
 
